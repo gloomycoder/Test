@@ -2,7 +2,7 @@
 
 namespace Behavior
 {
-	enum class StatusType
+	enum class Status
 	{
 		Succeed,
 		Failed,
@@ -28,28 +28,29 @@ namespace Behavior
 		virtual ~Composite() = default;
 
 	public:
-		Void setParent(CompositeShaPtr parent);
-		CompositeShaPtr getParent() const;
+		Void setParent(Composite* parent);
+		Composite* getParent() const;
 
-		StatusType start();
+		Void start();
+		Void stop();
+
+		Status getStatus() const;
 
 	protected:
-		virtual Enumerable<StatusType> execute() abstract;
-
-		virtual void onEnter() abstract;
-		virtual void onLeave() abstract;
+		virtual Enumerable<Status> execute() abstract;
+		virtual Void cleanup() abstract;
 
 	private:
-		StatusType onTick();
+		Status tick();
 
 	protected:
 		ActorShaPtr _owner = null;
 
 	private:
-		StatusType _status = StatusType::Max;
+		Status _status = Status::Max;
 		CompositeType _type = CompositeType::Max;
-		CompositeShaPtr _parent = null;
+		Composite* _parent = null;	// 순환참조 방지를 위해 raw pointer 로 보관한다. 부모가 자식들을 shared_ptr 로 가지므로 자식이 살아있다면 부모는 항상 존재함을 보장한다.
 
-		Enumerable<StatusType> _current;
+		Enumerable<Status> _current;
 	};
 }

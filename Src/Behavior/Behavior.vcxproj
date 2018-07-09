@@ -189,6 +189,7 @@
     <ClInclude Include="CommonForwardDeclare.h" />
     <ClInclude Include="CommonHeader.h" />
     <ClInclude Include="CommonInclude.h" />
+    <ClInclude Include="CommonLocalHeader.h" />
     <ClInclude Include="Composite.h" />
     <ClInclude Include="Enumerable.h" />
     <ClInclude Include="GroupComposite.h" />

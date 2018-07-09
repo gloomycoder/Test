@@ -9,24 +9,68 @@ namespace Behavior
 	{
 	}
 
-	Void Composite::setParent(CompositeShaPtr parent)
+	Void Composite::setParent(Composite* parent)
 	{
 		_parent = parent;
 	}
 
-	CompositeShaPtr Composite::getParent() const
+	Composite* Composite::getParent() const
 	{
 		return _parent;
 	}
 
-	StatusType Composite::start()
+	Void Composite::start()
 	{
-		return StatusType();
+		_status = Status::Max;
+		_current = execute();
 	}
 
-	StatusType Composite::onTick()
+	Void Composite::stop()
 	{
+		cleanup();
 
-		return StatusType();
+		if (_current.isGood())
+		{
+			_current.reset();
+		}
+
+		if (Status::Running == _status)
+		{
+			_status = Status::Failed;
+		}
+	}
+
+	Status Composite::getStatus() const
+	{
+		return _status;
+	}
+
+	Status Composite::tick()
+	{
+		if (Status::Running != _status)
+		{
+			return _status;
+		}
+
+		if (false == _current.isGood())
+		{
+			throw std::runtime_error("invalid composite value");
+		}
+
+		if (_current.moveNext())
+		{
+			_status = _current.currentValue();
+		}
+		else
+		{
+			throw std::runtime_error("empty composite?");
+		}
+
+		if (_status != Status::Running)
+		{
+			stop();
+		}
+
+		return _status;
 	}
 }

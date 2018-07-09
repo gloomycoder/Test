@@ -4,15 +4,30 @@
 
 namespace Behavior
 {
+	enum class ActionType
+	{
+		Max
+	};
+
 	class Action : public Composite
 	{
 	public:
 		Action() = delete;
-		explicit Action(ActorShaPtr owner);
+		explicit Action(ActionType type, ActorShaPtr owner)
+			: Composite(CompositeType::Action, owner)
+			, _actionType(type)
+		{
+		}
 		virtual ~Action() = default;
 
-	public:
-		virtual StatusType run();
-		virtual void onSucceed();
+	protected:
+		virtual Status run() abstract;
+
+	protected:
+		virtual Enumerable<Status> execute() override final;
+		virtual Void cleanup() override;
+
+	private:
+		ActionType _actionType = ActionType::Max;
 	};
 }

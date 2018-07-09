@@ -17,16 +17,17 @@ struct Enumerable
 
 		suspend_always initial_suspend() { return {}; }
 		suspend_always final_suspend() { return {}; }
-		generator2 get_return_object() { return generator2{ this }; }
+		Enumerable get_return_object() { return Enumerable{ this }; }
 	};
 
 	Bool isGood() { return !!_handle; }
 	Bool moveNext() { _handle.resume(); return !_handle.done(); }
+	Void reset() { if (isGood()) { _handle.destroy(); _handle = null; } }
 	return_type currentValue() { return _handle.promise()._value; }
 
 	~Enumerable()
 	{
-		_handle.destroy();
+		reset();
 	}
 
 	Enumerable() = default;
