@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Action">
+      <UniqueIdentifier>{7e09f888-16a4-48a1-b5fa-d879ee51ecf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Composite">
+      <UniqueIdentifier>{3ba0dfcb-ec61-40d3-812d-df4a471e995f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{2bb099e5-ce4a-44ea-97c4-63f7b1bc4cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Actor">
+      <UniqueIdentifier>{34ac3ff7-9f79-4176-b019-04f8f5f36b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Coroutine">
+      <UniqueIdentifier>{9e0f96e8-eb88-4ecd-bdb8-256764088b75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="Composite.h">
+      <Filter>Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonHeader.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonDefine.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonEtc.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonForwardDeclare.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupComposite.h">
+      <Filter>Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Enumerable.h">
+      <Filter>Coroutine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Composite.cpp">
+      <Filter>Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>Action</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupComposite.cpp">
+      <Filter>Composite</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
