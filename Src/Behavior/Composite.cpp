@@ -45,31 +45,51 @@ namespace Behavior
 		return _status;
 	}
 
+	ActorShaPtr Composite::getOwner() const
+	{
+		return _owner;
+	}
+
+	Void Composite::cleanup()
+	{
+	}
+
 	Status Composite::tick()
 	{
-		if (Status::Running != _status)
+		if (Status::Max != _status)
 		{
-			return _status;
+			if (Status::Running != _status)
+			{
+				return _status;
+			}
 		}
+		
+		try
+		{
+			if (false == _current.isGood())
+			{
+				throw std::runtime_error("invalid composite value");
+			}
 
-		if (false == _current.isGood())
-		{
-			throw std::runtime_error("invalid composite value");
-		}
+			if (_current.moveNext())
+			{
+				_status = _current.currentValue();
+			}
+			else
+			{
+				throw std::runtime_error("empty composite?");
+			}
 
-		if (_current.moveNext())
-		{
-			_status = _current.currentValue();
+			if (_status != Status::Running)
+			{
+				stop();
+			}
 		}
-		else
+		catch (std::exception& ex)
 		{
-			throw std::runtime_error("empty composite?");
+			std::cout << ex.what() << std::endl;
 		}
-
-		if (_status != Status::Running)
-		{
-			stop();
-		}
+		
 
 		return _status;
 	}

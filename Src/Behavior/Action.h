@@ -22,6 +22,7 @@ namespace Behavior
 
 	protected:
 		virtual Status run() abstract;
+		virtual Void enter() {}
 
 	protected:
 		virtual Enumerable<Status> execute() override final;

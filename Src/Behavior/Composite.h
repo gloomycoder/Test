@@ -21,7 +21,7 @@ namespace Behavior
 		Max,
 	};
 
-	class Composite
+	class Composite : public std::enable_shared_from_this<Composite>
 	{
 	public:
 		Composite(CompositeType type, ActorShaPtr owner);
@@ -35,12 +35,15 @@ namespace Behavior
 		Void stop();
 
 		Status getStatus() const;
+		ActorShaPtr getOwner() const;
+
+		virtual Bool isEnd() const { return false; }
 
 	protected:
 		virtual Enumerable<Status> execute() abstract;
-		virtual Void cleanup() abstract;
+		virtual Void cleanup();
 
-	private:
+	public:
 		Status tick();
 
 	protected:

@@ -9,6 +9,9 @@
 #include <algorithm>
 #include <utility>
 #include <functional>
+#include <random>
+
+#include <thread>
 
 #include <vector>
 #include <map>
@@ -17,6 +20,7 @@
 #include <unordered_set>
 #include <list>
 #include <array>
+#include <chrono>
 
 #include <memory>
 
@@ -25,5 +29,6 @@
 #include <experimental/generator>
 #include <experimental/filesystem>
 
+using namespace std::chrono;
 using namespace std::experimental;
 namespace fs = std::experimental::filesystem;

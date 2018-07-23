@@ -61,6 +61,18 @@
     <ClInclude Include="CommonLocalHeader.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="Decorator.h">
+      <Filter>Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Sequence.h">
+      <Filter>Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Selector.h">
+      <Filter>Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Condition.h">
+      <Filter>Composite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Composite.cpp">
@@ -76,6 +88,18 @@
       <Filter>Action</Filter>
     </ClCompile>
     <ClCompile Include="GroupComposite.cpp">
+      <Filter>Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Decorator.cpp">
+      <Filter>Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence.cpp">
+      <Filter>Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Selector.cpp">
+      <Filter>Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Condition.cpp">
       <Filter>Composite</Filter>
     </ClCompile>
   </ItemGroup>
